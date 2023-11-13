@@ -153,11 +153,10 @@ int main() {
                 //records.push_back(record);
 
 
-                if (iter < maxIter || iter == MaxIterations) { continue; }
-
-
-
-		else if (!(iter < maxIter || iter == MaxIterations)){
+                if (iter < maxIter || iter == MaxIterations) { 
+			continue; 
+		}
+		else { //if (!(iter < maxIter || iter == MaxIterations)){
                     Record record{number, n};
                     if (iter > maxIter) {
                         //data that the threads share need to be protected by a lock otherwise we get a race condition

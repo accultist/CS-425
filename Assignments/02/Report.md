@@ -13,7 +13,8 @@ Here's a table showing the improvements during the course of working on the prov
 | Version | Time (real) |  Time (user) |  Time (sys) | Speedup (real) |  Changes |
 | :-----: | ----------- | ------------ | ----------- | :-----: | ------- | 
 | 01 | 0m17.840s | 1m55.522s | 0m0.060s | &mdash; | Initial version - no changes |
-| 02 | 0m17.223s | 1m53.579s | 0m0.061s | 1.04x | Incorporated "else" clause before output |
+| 02.1 | 0m17.223s | 1m53.579s | 0m0.061s | 1.04x | Incorporated "else" clause before output |
+| 02.2 | 0m17.080s | 1m53.816s | 0m0.041s | 1.01x | Slight reformatting of "else" clause modified |
 
 
 ## Initial Analysis
