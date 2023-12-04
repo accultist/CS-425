@@ -101,8 +101,10 @@ int main(int argc, char* argv[]) {
     //   after the color (:) in the URL.
     Connection connection(port);
 
-    // A vector to keep track of threads, if needed for management
-    //std::vector<std::thread> threads;
+    // manual threading
+    // declared vector to track threads, useful for multiple clients
+    // this seems okay for the program scope because it's a 1 to 1 thread per client connection
+    std::vector<std::thread> threads;
 
     // Process sessions.  A session begins with a web browser making a
     //   request.  When the request is made, our connection "accepts"
@@ -118,16 +120,22 @@ int main(int argc, char* argv[]) {
         // a new thread is started to handle the session, detaching the thread to run independently
         int newSocket = connection.accept();
         if (newSocket != -1) {
-            std::thread(handleSession, Session(newSocket)).detach();
+            // add thread to end of vector
+            // emplace_back is a bit better then push_back as it saves on memory space for this usecase
+            threads.emplace_back(handleSession, Session(newSocket));
         }
     }
 
     /*
+    * This section is ultimetly unncessary for the scope of the program
+    * however, I left it in to possibly make further modifications
+    * this can be used for making sure the threads finish before exiting
     for (auto& t : threads) {
         if (t.joinable()) {
             t.join();
         }
     }
     */
+    
 }
 

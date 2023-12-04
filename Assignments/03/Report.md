@@ -16,6 +16,8 @@ Here's a table showing the improvements during the course of working on the prov
 | :-----: | ----------- | ------------ | ----------- | :-----: | ------- | 
 | 01 | 0m44.12s | 348 | 559.54 MB | &mdash; | Initial version - no changes |
 | 02 | 0m25.97s | 297 | 559.54 MB | 1.70x | Implemented threading |
+| 02.1 | 0m27.51s | 297 | 559.54 MB | 0.94x | Cleanup & comments |
+
 
 
 ## Initial Analysis
