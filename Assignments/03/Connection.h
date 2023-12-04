@@ -47,6 +47,25 @@ struct Session {
         if (_client > 0) { CHECK(::close(_client)); }
     }
 
+    // without the move constructor & assignment operator, recv() was triggered
+    // this has to do with the way _client is handled
+    // this causes an error of "Bad file descriptor as a result
+    // Move constructor which invalidates the old descriptor
+    Session(Session&& other) noexcept : _client(other._client)
+    { other._client = -1; }
+
+    // move assignment operator
+    Session& operator=(Session&& other) noexcept {
+        if (this != &other) {
+            if (_client != -1) {
+                close(_client);
+            }
+            _client = other._client;
+            other._client = -1; // invalidate the old descriptor
+        }
+        return *this;
+    }
+
     //------------------------------------------------------------------------
     //
     //  Methods

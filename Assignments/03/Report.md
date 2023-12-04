@@ -15,7 +15,7 @@ Here's a table showing the improvements during the course of working on the prov
 | Version | Time (Finish) |  File Requests |  Data Transferred | Speedup (real) |  Change Comments |
 | :-----: | ----------- | ------------ | ----------- | :-----: | ------- | 
 | 01 | 0m44.12s | 348 | 559.54 MB | &mdash; | Initial version - no changes |
-| 02 | 0m30.71s | 297 | 559.54 MB | 1.44x | Implemented threading with change to server.cpp and Connection.h |
+| 02 | 0m25.97s | 297 | 559.54 MB | 1.70x | Implemented threading |
 
 
 ## Initial Analysis
@@ -24,7 +24,7 @@ Program works as expected, taking the stock images sourced from the blue server.
 ### Additional comments
 
 ## Version 2
-
+Additional changes were made to server.cpp, most significantly adding threading to handle the requests made from the client to the server, and the response from the server. Minor changes were made to Connection.h to prevent any errors as shown in the Connection.h file.
 
 
 
